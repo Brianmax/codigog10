@@ -1,5 +1,7 @@
 package arrays;
 
+import poo.Persona;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -21,6 +23,7 @@ public class Matrices {
             }
         }
 
+        Persona persona = new Persona();
 
     }
 }
