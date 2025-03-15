@@ -3,8 +3,8 @@ package herencia;
 public class Estudiante extends Persona{
     private float promedio;
 
-
-    public void printInfo() {
-        System.out.println(nombre);
+    public Estudiante(String nombre, String apellido, int edad, float promedio) {
+        super(nombre, apellido, edad);
+        this.promedio = promedio;
     }
 }

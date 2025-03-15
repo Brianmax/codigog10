@@ -5,6 +5,5 @@ public class App {
         System.out.println("Hello, World!");
 
         Persona persona = new Persona();
-        persona.nombre = "Jose";
     }
 }

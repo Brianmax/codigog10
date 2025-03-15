@@ -2,10 +2,7 @@ package arrays;
 
 import herencia.Persona;
 
-public class Admin extends Persona {
+public class Admin {
     private String credential;
 
-    public void printInfo() {
-        System.out.println(nombre);
-    }
 }
