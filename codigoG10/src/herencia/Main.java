@@ -7,5 +7,7 @@ public class Main {
                 "Maxi",
                 19,
                 13);
+
+        estudiante.printInfo();
     }
 }

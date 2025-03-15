@@ -10,4 +10,10 @@ public class Persona {
         this.apellido = apellido;
         this.edad = edad;
     }
+
+    public void printInfo() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Apellido: " + apellido);
+        System.out.println("Edad: " + edad);
+    }
 }

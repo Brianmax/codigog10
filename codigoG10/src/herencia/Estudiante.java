@@ -7,4 +7,10 @@ public class Estudiante extends Persona{
         super(nombre, apellido, edad);
         this.promedio = promedio;
     }
+
+    @Override
+    public void printInfo() {
+        super.printInfo();
+        System.out.println("Promedio: " + promedio);
+    }
 }
