@@ -7,6 +7,18 @@ public class Main {
         Library library = new Library();
         Scanner sc = new Scanner(System.in);
 
+        library.addItem(new Dvd("Dvd1", 1, "director1", 120));
+        library.addItem(new Dvd("Dvd2", 2, "director2", 120));
+        library.addItem(new Dvd("Dvd3", 3, "director3", 120));
+        library.addItem(new Dvd("Dvd4", 4, "director4", 120));
+        library.addItem(new Dvd("Dvd5", 5, "director5", 120));
+
+        library.addUser(new LibraryUser("user1", 1));
+        library.addUser(new LibraryUser("user2", 2));
+        library.addUser(new LibraryUser("user3", 3));
+        library.addUser(new LibraryUser("user4", 4));
+
+
         while(true) {
             System.out.println("1. Agregar usuario");
             System.out.println("2. Agregar item");
