@@ -37,13 +37,29 @@ public class Library {
         }
         if(isFound) {
             System.out.println("Item already exists");
-        } else {
-            items.add(itemAdd);
+            return;
         }
+        items.add(itemAdd);
+        System.out.println("Item added");
 
     }
     // crear el metodo para agregar un usuario
     // el username y el userId deben de ser unicos (no se pueden repetir)
+    public void addUser(LibraryUser userAdd) {
+        boolean isFound = false;
+        for(LibraryUser user: users) {
+            if(user.getUserId() == userAdd.getUserId()) {
+                isFound = true;
+                break;
+            }
+        }
+        if(isFound) {
+            System.out.println("User already exists");
+            return;
+        }
+        users.add(userAdd);
+        System.out.println("User added");
+    }
 
     public void loanItem(int idUser, int idItem) {
         // buscando al usuario
@@ -75,5 +91,6 @@ public class Library {
         // operacion de prestamo
         userFound.getLoanedItems().add(itemFound);
         itemFound.setIsLoaned(true);
+        System.out.println("Item loaned");
     }
 }

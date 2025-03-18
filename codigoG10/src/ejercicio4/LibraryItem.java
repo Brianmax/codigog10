@@ -5,10 +5,10 @@ public class LibraryItem {
     protected int itemId;
     protected boolean isLoaned;
 
-    public LibraryItem(String title, int itemId, boolean isLoaned) {
+    public LibraryItem(String title, int itemId) {
         this.title = title;
         this.itemId = itemId;
-        this.isLoaned = isLoaned;
+        this.isLoaned = false;
     }
 
     public String getTitle() {
