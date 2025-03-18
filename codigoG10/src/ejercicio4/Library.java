@@ -26,4 +26,19 @@ public class Library {
     public void setUsers(ArrayList<LibraryUser> users) {
         this.users = users;
     }
+
+    public void addItem(LibraryItem itemAdd) {
+        boolean isFound = false;
+        for(LibraryItem item: items) {
+            if(itemAdd.getItemId() == item.getItemId()) {
+                isFound = true;
+                break;
+            }
+        }
+        if(isFound) {
+            System.out.println("Item already exists");
+        } else {
+            items.add(itemAdd);
+        }
+    }
 }
