@@ -13,4 +13,12 @@ public class Estudiante extends Persona{
         super.printInfo();
         System.out.println("Promedio: " + promedio);
     }
+
+    public float getPromedio() {
+        return promedio;
+    }
+
+    public void setPromedio(float promedio) {
+        this.promedio = promedio;
+    }
 }

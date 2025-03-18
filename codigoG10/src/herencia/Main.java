@@ -9,5 +9,18 @@ public class Main {
                 13);
 
         estudiante.printInfo();
+        System.out.println("===============================");
+
+
+        Persona persona = new Estudiante(
+                "Pedro",
+                "Vargas",
+                12,
+                19);
+        persona.printInfo();
+
+
+        // A nombre, apellido, edad
+        // B nombre, apellido, edad, promedio
     }
 }
