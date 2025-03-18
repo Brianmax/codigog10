@@ -3,9 +3,9 @@ package ejercicio4;
 public class LibraryItem {
     protected String title;
     protected int itemId;
-    protected String isLoaned;
+    protected boolean isLoaned;
 
-    public LibraryItem(String title, int itemId, String isLoaned) {
+    public LibraryItem(String title, int itemId, boolean isLoaned) {
         this.title = title;
         this.itemId = itemId;
         this.isLoaned = isLoaned;
@@ -27,11 +27,11 @@ public class LibraryItem {
         this.itemId = itemId;
     }
 
-    public String getIsLoaned() {
+    public boolean getIsLoaned() {
         return isLoaned;
     }
 
-    public void setIsLoaned(String isLoaned) {
+    public void setIsLoaned(boolean isLoaned) {
         this.isLoaned = isLoaned;
     }
 

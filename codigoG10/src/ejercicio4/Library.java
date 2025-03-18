@@ -40,5 +40,40 @@ public class Library {
         } else {
             items.add(itemAdd);
         }
+
+    }
+    // crear el metodo para agregar un usuario
+    // el username y el userId deben de ser unicos (no se pueden repetir)
+
+    public void loanItem(int idUser, int idItem) {
+        // buscando al usuario
+        LibraryUser userFound = null;
+        for(LibraryUser user: users) {
+            if(idUser == user.getUserId()) {
+                userFound = user;
+                break;
+            }
+        }
+        if(userFound == null) {
+            System.out.println("User not found");
+            return;
+        }
+
+        // buscando al item
+        LibraryItem itemFound = null;
+        for(LibraryItem item: items) {
+            if(idItem == item.getItemId()) {
+                itemFound = item;
+                break;
+            }
+        }
+        if(itemFound == null || itemFound.getIsLoaned()) {
+            System.out.println("Item not found or is loaned");
+            return;
+        }
+
+        // operacion de prestamo
+        userFound.getLoanedItems().add(itemFound);
+        itemFound.setIsLoaned(true);
     }
 }

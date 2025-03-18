@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class LibraryUser {
     private String username;
-    private String userId;
+    private int userId;
     private ArrayList<LibraryItem> loanedItems;
 
-    public LibraryUser(String username, String userId) {
+    public LibraryUser(String username, int userId) {
         this.username = username;
         this.userId = userId;
         this.loanedItems = new ArrayList<>();
@@ -29,11 +29,11 @@ public class LibraryUser {
         this.loanedItems = loanedItems;
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
