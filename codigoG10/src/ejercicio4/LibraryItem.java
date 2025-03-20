@@ -1,5 +1,7 @@
 package ejercicio4;
 
+import javax.swing.*;
+
 public class LibraryItem {
     protected String title;
     protected int itemId;
@@ -39,5 +41,10 @@ public class LibraryItem {
         System.out.println("Title: " + title);
         System.out.println("Item ID: " + itemId);
         System.out.println("IsLoaned: " + isLoaned);
+    }
+
+    @Override
+    public String toString() {
+        return title + ", " + itemId + ", " + isLoaned;
     }
 }

@@ -18,6 +18,8 @@ public class Main {
         library.addUser(new LibraryUser("user3", 3));
         library.addUser(new LibraryUser("user4", 4));
 
+        System.out.println(new Dvd("Dvd1", 1, "director1", 120));
+
 
         while(true) {
             System.out.println("1. Agregar usuario");

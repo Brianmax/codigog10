@@ -32,5 +32,8 @@ public class Dvd extends LibraryItem{
         System.out.println("Duration: " + duration);
     }
 
-
+    @Override
+    public String toString() {
+        return "Tittle: " + title + ", ItemId: " + itemId + ", IsLoaned: " + isLoaned + ", Duration: " + duration + ", Director: " + director;
+    }
 }
