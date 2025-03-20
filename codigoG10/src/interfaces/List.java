@@ -3,7 +3,7 @@ package interfaces;
 // no tiene atributos
 // no tiene constructor
 public interface List {
-    int maxSize = 100;
+    int maxSize = 100; // static-final
 
     void add(int a);
     void remove(int a);
