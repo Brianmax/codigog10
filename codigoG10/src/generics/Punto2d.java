@@ -1,19 +1,19 @@
 package generics;
 
-public class Punto2d <T> {
+public class Punto2d <T, K> {
     private T x;
-    private T y;
+    private K y;
 
-    public Punto2d(T x, T y) {
+    public Punto2d(T x, K y) {
         this.x = x;
         this.y = y;
     }
 
-    public T getY() {
+    public K getY() {
         return y;
     }
 
-    public void setY(T y) {
+    public void setY(K y) {
         this.y = y;
     }
 
