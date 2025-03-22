@@ -1,6 +1,8 @@
 package interfaces;
 
 public class ArrayList implements List {
+
+    int[] array = new int[0];
     @Override
     public void add(int a) {
 
