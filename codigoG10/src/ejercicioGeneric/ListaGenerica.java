@@ -26,10 +26,21 @@ public class ListaGenerica <T> {
     // retorna true si el elemento esta dentro del array
     // falso si no esta
 
+    public boolean contieneElemento(T elemento) {
+        for(int i = 0; i < tamanio; i++) {
+            if(elementos[i] == null && elemento == null) {
+                return true;
+            } else if(elementos[i] != null && elementos[i].equals(elemento)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public T obtener(int posicion) {
         if(posicion < 0 || posicion >= tamanio) {
-            System.out.println("Posicion no valido");]
-            return null;
+            System.out.println("Posicion no valido");
+            throw new IndexOutOfBoundsException("Posicion no valido");
         }
         return elementos[posicion];
     }
@@ -41,4 +52,6 @@ public class ListaGenerica <T> {
         T[] nuevoArray = Arrays.copyOf(elementos, nuevaCapacidad);
         elementos = nuevoArray;
     }
+
+
 }
