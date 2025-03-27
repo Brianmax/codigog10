@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS usuario(
     usuario_id SERIAL PRIMARY KEY,
     username VARCHAR(255) UNIQUE NOT NULL,
     email VARCHAR(255) NOT NULL,
-    password(255) NOT NULL
+    password VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS articulo(
@@ -23,3 +23,4 @@ CREATE TABLE IF NOT EXISTS comentario(
     FOREIGN KEY(usuario_id_fk) REFERENCES usuario(usuario_id),
     FOREIGN KEY(articulo_id_fk) REFERENCES articulo(articulo_id)
 );
+
