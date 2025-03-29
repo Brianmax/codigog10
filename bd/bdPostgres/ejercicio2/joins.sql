@@ -41,3 +41,8 @@ ON p.id_pasajero = b.id_pasajero_fk WHERE b.id_pasajero_fk IS NULL;
 
 SELECT * FROM aerolineas a LEFT JOIN aviones av
 ON a.id_aerolinea = av.id_aerolinea_fk WHERE av.id_aerolinea_fk IS NULL;
+
+
+-- DELETE AEROLINEA
+
+DELETE FROM aerolineas WHERE id_aerolinea = 20;
