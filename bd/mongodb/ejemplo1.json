@@ -1,0 +1,33 @@
+{
+    "nombre": "George",
+    "apellido": "Maxi",
+    "edad": 28,
+    "amigos": ["Rafael", "Jose", "Sergio"],
+    "direcciones": [
+        {
+            "ciudad": "Arequipa",
+            "distrito": "Yanahuara",
+            "calle": "Las Alamedas",
+            "numero": 304,
+            "piso": 3,
+            "departamento": 10
+        },
+        {
+            "ciudad": "Arequipa",
+            "distrito": "Yanahuara",
+            "calle": "Las Alamedas",
+            "numero": 304,
+            "piso": 3,
+            "departamento": 10
+        },
+        {
+            "ciudad": "Arequipa",
+            "distrito": "Yanahuara",
+            "calle": "Las Alamedas",
+            "numero": 304,
+            "piso": 3,
+            "departamento": 10
+        }
+    ]
+
+}
