@@ -6,4 +6,7 @@ UPDATE usuario SET username = 'george789' WHERE usuario_id = 28;
 
 DELETE FROM usuario WHERE usuario_id = 28;
 
+DELETE FROM usuario WHERE usuario_id = 98;
 
+
+SELECT * FROM articulo;

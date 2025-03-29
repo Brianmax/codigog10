@@ -1,4 +1,4 @@
-
+-- INNER JOIN AEROLINEAS/AVIONES
 
 SELECT * FROM aerolineas JOIN aviones
 ON aerolineas.id_aerolinea = aviones.id_aerolinea_fk;
@@ -26,3 +26,18 @@ SELECT * FROM aerolineas a LEFT JOIN aviones av
 ON a.id_aerolinea = av.id_aerolinea_fk;
 
 -- PASAJEROS -- BOLETOS
+
+SELECT * FROM pasajeros p LEFT JOIN boletos b
+ON p.id_pasajero = b.id_pasajero_fk;
+
+
+-- LEFT OUTTER JOIN
+SELECT * FROM pasajeros p LEFT JOIN boletos b
+ON p.id_pasajero = b.id_pasajero_fk WHERE b.id_pasajero_fk IS NULL;
+
+
+-- LEFT OUTTER JOIN (AEROLINEAS CON AVIONES)
+-- AEROLINEAS QUE NO TIENEN AVIONES
+
+SELECT * FROM aerolineas a LEFT JOIN aviones av
+ON a.id_aerolinea = av.id_aerolinea_fk WHERE av.id_aerolinea_fk IS NULL;
