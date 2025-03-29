@@ -1,0 +1,29 @@
+use('db1')
+
+db.createCollection("usuarios")
+
+use('db1')
+db.usuarios.insertOne(
+    {
+        username: "george123",
+        password: "12345",
+        email: "george@gmail.com"
+    }
+);
+
+
+use('db1')
+db.usuarios.insertMany(
+    [
+        {
+            username: "fiorela123",
+            password: "12345",
+            email: "fiorela@gmail.com"
+        },
+        {
+            username: "andres123",
+            password: "12345",
+            email: "andres@gmail.com"
+        }
+    ]
+);
