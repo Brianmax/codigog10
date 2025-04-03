@@ -1,0 +1,50 @@
+
+use('sample_training')
+// buscar las ciudades que tengan una poblacion 
+// mayor a 100000
+
+db.zips.find(
+    {
+        pop: { $gt: 100000}
+    }
+);
+
+// buscar los documentos
+// en los que la ubicacion este
+// entre 80 y 150 para 'x'
+// 20 y 100 para 'y'
+
+
+use('sample_training')
+db.zips.find(
+    {
+        $and: [
+            {
+                "loc.x": { $gte: 80 },
+                "loc.x": { $lte: 150 }
+            },
+            {
+                "loc.y": { $gte: 20 },
+                "loc.y": { $lte: 100}
+            }
+        ]
+    }
+);
+use('sample_training')
+db.zips.find().count();
+
+
+
+use('sample_training')
+db.zips.aggregate(
+    {
+        $match: { 
+            state: 'AL'
+        }
+    },
+    {
+        $sort: {
+            city: -1
+        }
+    }
+);

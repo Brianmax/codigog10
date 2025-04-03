@@ -6,7 +6,7 @@ db.createCollection("user",
         validator: {
             $jsonSchema: {
                 bsonType: 'object',
-                required: ['nombre']
+                required: ['nombre', 'apellido', 'username', 'password'],
                 properties: {
                     nombre: {
                         bsonType: 'string'
@@ -24,7 +24,7 @@ db.createCollection("user",
                         bsonType: 'int'
                     },
                     productos: {
-                        bsonType: 'array'
+                        bsonType: 'array',
                         items: {
                             bsonType: 'object',
                             properties: {
@@ -42,9 +42,65 @@ db.createCollection("user",
                                 }
                             }
                         }
+                    },
+                    direcciones: {
+                        bsonType: 'array',
+                        items: {
+                            bsonType: 'object',
+                            properties: {
+                                calle: {
+                                    bsonType: 'string'
+                                },
+                                distrito: {
+                                    bsonType: 'string'
+                                },
+                                region: {
+                                    bsonType: 'string'
+                                },
+                                pais: {
+                                    bsonType: 'string'
+                                },
+                                referencia: {
+                                    bsonType: 'string'
+                                },
+                                numero: {
+                                    bsonType: 'int'
+                                },
+                                num_departamento: {
+                                    bsonType: 'int'
+                                },
+                                piso: {
+                                    bsonType: 'int'
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
     }
 )
+
+
+use('dbSchema')
+db.user.insertOne(
+    {
+        nombre: "Fiorela",
+        apellido: "Martinez",
+        username: "fiorela12",
+        password: "jklfadsj",
+        direcciones: [
+            {
+                calle: "calle1",
+                distrito: "distrito1",
+                region: "region1",
+                pais: "pais1",
+                referencia: "referencia1",
+            }
+        ]
+    }
+);
+
+// agregar el campo de direcciones que sera un array
+// cada direccion contiene lo siguiente
+// calle/distrito/region/pais/referencia/numero/num_departamento/num_piso
