@@ -120,3 +120,111 @@ db.universidades.find(
         ]
     }
 );
+
+
+// traer las universidades que tengan un presupuesto
+// mayor o igual que 3M y menor que 5M
+
+use('db1')
+db.universidades.find(
+    {
+        $and: [
+            {
+                presupuesto: { $gte: 3000000}
+            },
+            {
+                presupuesto: { $lt: 5000000}
+            }
+        ]
+    }
+);
+
+// $and y $or
+// traer documentos donde el numero de alumnos sea menor que 10k
+// o el presupuesto sea mayor o igual a 4M, pero ademas, la universidad
+// debe de estar en la region lima
+
+
+
+use('db1')
+db.universidades.find(
+    {
+        $or: [
+            { alumnos: { $lt: 10000 }},
+            { presupuesto: { $gte: 4000000 }}
+        ],
+        "direccion.region": "Lima"
+    }
+);
+
+
+use ('db1')
+db.universidades.find({
+    $or: [ 
+        { alumnos: { $lt: 10000 } }, 
+        { "direccion.region": "Lima" } 
+    ],
+    presupuesto: { $gt: 4000000 }
+});
+
+// $
+
+
+use ('db1')
+db.universidades.find();
+
+// hacer la misma consulta con el operador and implicito (,)
+
+
+use('db1')
+db.universidades.insertOne(
+    {
+        cantidad: 10
+    }
+);
+
+// $set
+
+use('db1')
+db.universidades.updateMany(
+    {
+        "direccion.region": "Lima"
+    },
+    {
+        $set:
+        {
+            alumnos: 10000
+        }
+    }
+);
+
+// $inc
+
+use('db1')
+db.universidades.updateMany(
+    {
+        "direccion.region": "Lima",
+        alumnos: { $gte: 1000}
+    },
+    {
+        $inc: {
+            presupuesto: 3000000
+        }
+    }
+);
+
+// $rename
+
+use('db1')
+db.universidades.updateMany(
+    {
+
+    },
+    {
+        $rename:{
+            alumnos: "cantidadAlumnos"
+        }
+    }
+);
+
+

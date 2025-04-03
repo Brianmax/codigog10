@@ -1,0 +1,50 @@
+
+use('dbSchema')
+
+db.createCollection("user",
+    {
+        validator: {
+            $jsonSchema: {
+                bsonType: 'object',
+                required: ['nombre']
+                properties: {
+                    nombre: {
+                        bsonType: 'string'
+                    },
+                    apellido: {
+                        bsonType: 'string'
+                    },
+                    username: {
+                        bsonType: 'string'
+                    },
+                    password: {
+                        bsonType: 'string'
+                    },
+                    edad: {
+                        bsonType: 'int'
+                    },
+                    productos: {
+                        bsonType: 'array'
+                        items: {
+                            bsonType: 'object',
+                            properties: {
+                                nombre_producto: {
+                                    bsonType: 'string'
+                                },
+                                precio: {
+                                    bsonType: 'double'
+                                },
+                                cantidad: {
+                                    bsonType: 'int'
+                                },
+                                categoria: {
+                                    bsonType: 'string'
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+)
