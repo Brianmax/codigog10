@@ -31,7 +31,7 @@ db.zips.find(
     }
 );
 use('sample_training')
-db.zips.find().count();
+db.zips.find();
 
 
 
@@ -46,5 +46,80 @@ db.zips.aggregate(
         $sort: {
             city: -1
         }
+    },
+    {
+        $group: {
+            "_id": "$zip"
+        }
+    }
+    
+);
+
+
+// match: todos los documentos en el que el campo
+// pop sea mayor o igual que 100K
+
+// group: agruparlos por el campo state
+
+use('sample_training')
+db.zips.aggregate(
+    {
+        $match: {
+            pop: { $gte: 100000 }
+        }
+    },
+    {
+        $group: {
+            "_id": "$state"
+        }
     }
 );
+
+
+
+use('sample_training')
+db.zips.aggregate(
+    {
+        $match: { 
+            state: 'AL'
+        }
+    },
+    {
+        $sort: {
+            city: -1
+        }
+    },
+    {
+        $group: {
+            "_id": "$zip"
+        }
+    }
+    
+);
+
+// sample_training
+// posts
+// filtrar por autor ('machine')
+// sort por fecha de forma ascendente
+
+use('sample_training')
+
+db.posts.aggregate(
+    {
+        $match: {
+            title: 'US Constitution'
+        }
+    },
+    {
+        $sort: {
+            permalink: -1
+        }
+    },
+    {
+        $project: {
+            comments: 0,
+            tags: 0
+        }
+    }
+);
+
