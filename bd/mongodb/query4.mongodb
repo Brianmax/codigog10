@@ -31,7 +31,15 @@ db.zips.find(
     }
 );
 use('sample_training')
-db.zips.find();
+db.zips.find(
+    {
+    },
+    {
+        city: true,
+        pop: true,
+        state: true
+    }
+);
 
 
 
@@ -123,3 +131,141 @@ db.posts.aggregate(
     }
 );
 
+// return los estados con una poblacion
+// mayor a los 10M
+
+
+use('sample_training')
+db.zips.aggregate(
+    {
+        $group: {
+            "_id": "$state",
+            "totalPop": { $sum: "$pop"}
+        }
+    },
+    {
+        $match: {
+            totalPop: { $gt: 10000000}
+        }
+    }
+);
+
+// $avg
+
+
+// retornar la poblacion promedio por ciudad de un estado
+
+//promedio pob por estado
+use('sample_training')
+db.zips.aggregate(
+    {
+        $group:{
+            _id: { state: "$state", city: "$city"},
+            pop: { "$sum": "$pop"}
+        }
+    },
+    {
+        $group: {
+            "_id": "$_id.state",
+            avgCity: { $avg: "$pop"}
+        }
+    }
+);
+
+// retornar la ciudad mas grande y mas pequenia
+// por estado
+
+// group por estado
+// sort
+// $first
+// $last
+
+
+use('db1')
+db.test.insertMany(
+    [
+        { "_id" : 1, "item" : "abc", "price" : 10, "quantity" : 2, "date" : ISODate("2014-01-01T08:00:00Z") },
+        { "_id" : 2, "item" : "jkl", "price" : 20, "quantity" : 1, "date" : ISODate("2014-02-03T09:00:00Z") },
+        { "_id" : 3, "item" : "xyz", "price" : 5, "quantity" : 5, "date" : ISODate("2014-02-03T09:05:00Z") },
+        { "_id" : 4, "item" : "abc", "price" : 10, "quantity" : 10, "date" : ISODate("2014-02-15T08:00:00Z") },
+        { "_id" : 5, "item" : "xyz", "price" : 5, "quantity" : 10, "date" : ISODate("2014-02-15T09:05:00Z") },
+    ]
+);
+use('db1')
+db.test.aggregate(
+    [
+      {
+        $group:
+          {
+            _id: "$item",
+            minQuantity: { $min: "$quantity" }
+          }
+      }
+    ]
+ )
+
+// retornar la ciudad mas grande y mas pequenia
+// por estado
+
+// group por estado
+// sort
+// $first
+// $last
+ use('sample_training')
+ db.zips.aggregate(
+    {
+        $group: {
+            _id: { state: "$state", city: "$city"},
+            pop: { "$sum": "$pop"}
+        }
+    },
+    {
+        $sort: {
+            pop: 1
+        }
+    },
+    {
+        $group: {
+            _id: "$_id.state",
+            ciudadMasGrande: { $last: "$_id.city"},
+            popMasGrande: { $last: "$pop"},
+            ciudadMasPequenia: { $first: "$_id.city"},
+            popMasPequenio: { $first: "$pop"}
+        }
+    }
+ );
+
+
+use('db1')
+db.test.aggregate(
+    [
+      {
+        $group:
+          {
+            _id: "$item",
+            minQuantity: { $min: "$quantity" }
+          }
+      }
+    ]
+)
+
+use('sample_training')
+db.zips.aggregate(
+   {
+       $group: {
+           _id: { state: "$state", city: "$city"},
+           pop: { "$sum": "$pop"}
+       }
+   },
+   {
+        $group: {
+            _id: "$_id.state",
+            cities: {
+                $push: {
+                    city: "$_id.city",
+                    pop: "$pop"
+                }
+            }
+        }
+   }
+);
